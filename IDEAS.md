@@ -1,0 +1,5 @@
+ - find git directories recursively from given path(s) (configurable)
+ - call each found git dir a "project"
+ - determine number of commits in each project, per day for the last year
+ - cache old data to save processing time
+ - plot data nicely (one way could be like how GitHub presents this info)
