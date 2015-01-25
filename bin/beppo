@@ -2,4 +2,17 @@
 
 use v6;
 
+sub MAIN(Str :$config) {
+    if $config {
+        read_config($config);
+    }
+}
+
+sub read_config($config) {
+    my $file = $config.IO;
+    if not $file ~~ :e {
+        die "Config file '$config' does not exist";
+    }
+}
+
 # vim: expandtab shiftwidth=4 softtabstop=4 ft=perl6
