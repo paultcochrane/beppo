@@ -1,0 +1,8 @@
+{
+    "name" : "beppo",
+    "version" : "0.1.0",
+    "description" : "Graphically display activity in all Git projects.",
+    "author" : "Paul Cochrane",
+    "depends" : [ ],
+    "source-url" : "git://github.com/paultcochrane/beppo.git"
+}
