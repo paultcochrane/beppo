@@ -10,7 +10,7 @@ plan 3;
 }
 
 {
-    my $status = shell "bin/beppo --config=nonexistent_config";
+    my $status = shell "bin/beppo --config=nonexistent_config 2> /dev/null";
     ok $status.exit != 0;
 }
 
