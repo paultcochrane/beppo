@@ -9,8 +9,7 @@ sub MAIN(Str :$config) {
 }
 
 sub read_config($config) {
-    my $file = $config.IO;
-    if not $file ~~ :e {
+    if not $config.IO.e {
         die "Config file '$config' does not exist";
     }
 }
