@@ -16,7 +16,8 @@ do
 	total_commits=$(expr $total_commits + $commits)
 	if [ "$commits" -gt "0" ]
 	then
-	    project_name=$(basename $dir)
+	    escaped_base_dir=$(echo $base_dir | sed 's/\//\\\//g')
+	    project_name=$(echo $dir | sed "s/$escaped_base_dir\///")
 	    echo "    Total commits in project '$project_name' on $day: $commits"
 	fi
 	cd - > /dev/null
