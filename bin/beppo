@@ -6,12 +6,21 @@ sub MAIN(Str :$config, Str :$start-date, Str :$end-date, Bool :$show-config = Fa
     if $config {
         read-config($config);
     }
+    if $show-config {
+        print-config;
+    }
 }
 
 sub read-config($config) {
     if not $config.IO.e {
         die "Config file '$config' does not exist";
     }
+}
+
+sub print-config {
+    say 'config-file:';
+    say 'start-date:';
+    say 'end-date:';
 }
 
 # vim: expandtab shiftwidth=4 softtabstop=4 ft=perl6

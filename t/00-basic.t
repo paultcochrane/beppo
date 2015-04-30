@@ -37,10 +37,19 @@ subtest {
 }, "--start-date and --end-date options";
 
 subtest {
-    plan 1;
+    plan 4;
 
     my $status = shell "bin/beppo --show-config";
     ok $status.exitcode == 0, "accept --show-config option";
+
+    my $output = qqx{bin/beppo --show-config};
+    like $output, rx/'config-file'/, "config-file in show-config output";
+
+    $output = qqx{bin/beppo --show-config};
+    like $output, rx/'start-date'/, "start-date in show-config output";
+
+    $output = qqx{bin/beppo --show-config};
+    like $output, rx/'end-date'/, "end-date in show-config output";
 }, "--show-config functionality";
 
 # vim: expandtab shiftwidth=4 softtabstop=4 ft=perl6
