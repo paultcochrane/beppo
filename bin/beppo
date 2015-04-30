@@ -2,22 +2,22 @@
 
 use v6;
 
-sub MAIN(Str :$config,
+sub MAIN(Str :$config-file,
          Str :$start-date, Str :$end-date,
          Bool :$show-config = False,
          Bool :$verbose = False,
      ) {
-    if $config {
-        read-config($config);
+    if $config-file {
+        read-config($config-file);
     }
     if $show-config {
         print-config;
     }
 }
 
-sub read-config($config) {
-    if not $config.IO.e {
-        die "Config file '$config' does not exist";
+sub read-config($config-file) {
+    if not $config-file.IO.e {
+        die "Config file '$config-file' does not exist";
     }
 }
 

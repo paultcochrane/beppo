@@ -21,11 +21,11 @@ subtest {
 subtest {
     plan 2;
 
-    my $status = shell "bin/beppo --config=nonexistent_config 2> /dev/null";
+    my $status = shell "bin/beppo --config-file=nonexistent_config 2> /dev/null";
     ok $status.exitcode != 0, "specify nonexistent config file";
 
     shell "touch existing_config";
-    $status = shell "bin/beppo --config=existing_config";
+    $status = shell "bin/beppo --config-file=existing_config";
     ok $status.exitcode == 0, "specify existent config file";
     shell "rm existing_config";
 }, "--config option";
