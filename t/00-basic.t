@@ -2,7 +2,7 @@ use v6;
 
 use Test;
 
-plan 4;
+plan 5;
 
 {
     my $status = shell "bin/beppo";
@@ -24,6 +24,11 @@ plan 4;
 {
     my $status = shell "bin/beppo --start-date=2014-04-03";
     ok $status.exitcode == 0, "specify start date";
+}
+
+{
+    my $status = shell "bin/beppo --end-date=2014-04-03";
+    ok $status.exitcode == 0, "specify end date";
 }
 
 # vim: expandtab shiftwidth=4 softtabstop=4 ft=perl6

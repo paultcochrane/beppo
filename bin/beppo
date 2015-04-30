@@ -2,7 +2,7 @@
 
 use v6;
 
-sub MAIN(Str :$config, Str :$start-date) {
+sub MAIN(Str :$config, Str :$start-date, Str :$end-date) {
     if $config {
         read_config($config);
     }
