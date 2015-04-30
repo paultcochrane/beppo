@@ -2,7 +2,7 @@ use v6;
 
 use Test;
 
-plan 3;
+plan 4;
 
 subtest {
     plan 1;
@@ -35,5 +35,12 @@ subtest {
     $status = shell "bin/beppo --start-date=2014-04-02 --end-date=2014-04-03";
     ok $status.exitcode == 0, "specify start and end date";
 }, "--start-date and --end-date options";
+
+subtest {
+    plan 1;
+
+    my $status = shell "bin/beppo --show-config";
+    ok $status.exitcode == 0, "accept --show-config option";
+}, "--show-config functionality";
 
 # vim: expandtab shiftwidth=4 softtabstop=4 ft=perl6
