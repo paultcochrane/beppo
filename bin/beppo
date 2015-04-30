@@ -4,11 +4,11 @@ use v6;
 
 sub MAIN(Str :$config, Str :$start-date, Str :$end-date, Bool :$show-config = False) {
     if $config {
-        read_config($config);
+        read-config($config);
     }
 }
 
-sub read_config($config) {
+sub read-config($config) {
     if not $config.IO.e {
         die "Config file '$config' does not exist";
     }
