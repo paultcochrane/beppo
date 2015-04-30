@@ -4,7 +4,9 @@ use v6;
 
 sub MAIN(Str :$config,
          Str :$start-date, Str :$end-date,
-         Bool :$show-config = False) {
+         Bool :$show-config = False,
+         Bool :$verbose = False,
+     ) {
     if $config {
         read-config($config);
     }

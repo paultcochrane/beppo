@@ -2,7 +2,7 @@ use v6;
 
 use Test;
 
-plan 4;
+plan 5;
 
 subtest {
     plan 1;
@@ -10,6 +10,13 @@ subtest {
     my $status = shell "bin/beppo";
     ok $status.exitcode == 0, "run without options";
 }, "plain run";
+
+subtest {
+    plan 1;
+
+    my $status = shell "bin/beppo --verbose";
+    ok $status.exitcode == 0, "accept --verbose option";
+}, "--verbose option";
 
 subtest {
     plan 2;
