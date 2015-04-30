@@ -2,7 +2,7 @@ use v6;
 
 use Test;
 
-plan 3;
+plan 4;
 
 {
     my $status = shell "bin/beppo";
@@ -19,6 +19,11 @@ plan 3;
     my $status = shell "bin/beppo --config=existing_config";
     ok $status.exitcode == 0;
     shell "rm existing_config";
+}
+
+{
+    my $status = shell "bin/beppo --start-date=2014-04-03";
+    ok $status.exitcode == 0, "specify start date";
 }
 
 # vim: expandtab shiftwidth=4 softtabstop=4 ft=perl6
