@@ -7,6 +7,13 @@ sub MAIN(Str :$config-file,
          Bool :$show-config = False,
          Bool :$verbose = False,
      ) {
+         # use config object, pass the command line options to it, and have
+         # it use some kind of sensible defaults so that the main beppo
+         # application doesn't have to worry about configuration, it just
+         # uses the values presented to it.
+         #
+         #my $beppo = App::beppo.new($config-file, $start-date, $end-date, $show-config, $verbose);
+         #$beppo.run;
     if $config-file {
         read-config($config-file);
     }
