@@ -14,7 +14,8 @@ subtest {
     plan 1;
 
     my $config = Beppo::Config.new;
-    ok $config.config-file, "beppo.config";
+    is $config.config-file, "beppo.config",
+        "config-file default value";
 }, "default configuration options";
 
 # vim: expandtab shiftwidth=4 softtabstop=4 ft=perl6
