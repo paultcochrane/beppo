@@ -11,7 +11,7 @@ use Beppo::Config;  # update Test.pm to load this after successful "use"!
 ok Beppo::Config.new, "can instantiate Config object";
 
 subtest {
-    plan 3;
+    plan 4;
 
     my $config = Beppo::Config.new;
     is $config.config-file, "beppo.config",
@@ -24,6 +24,7 @@ subtest {
         "default start date is one year ago";
     is $config.end-date, Date.today,
         "default end date is today";
+    is $config.verbose, False, "default verbose option";
 }, "default configuration options";
 
 # vim: expandtab shiftwidth=4 softtabstop=4 ft=perl6
