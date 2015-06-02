@@ -3,7 +3,7 @@ use v6;
 use Test;
 use lib 'lib';
 
-plan 4;
+plan 5;
 
 use-ok "Beppo::Config", "can use Beppo::Config";
 use Beppo::Config;  # update Test.pm to load this after successful "use"!
@@ -33,6 +33,17 @@ subtest {
     my $config = Beppo::Config.new;
     ok $config.show-config, "show-config runs without error";
 
-}, "show-config method functionality"
+}, "show-config method functionality";
+
+subtest {
+    plan 1;
+
+    shell "touch existing_config";
+    my $config = Beppo::Config.new;
+    ok $config.read-config("existing_config"),
+        "read-config runs without error with existing config file";
+    shell "rm existing_config";
+}, "read-config method functionality";
+
 
 # vim: expandtab shiftwidth=4 softtabstop=4 ft=perl6

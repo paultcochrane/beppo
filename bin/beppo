@@ -18,16 +18,8 @@ sub MAIN(Str :$config-file,
          #$beppo.run;
     my $config = Beppo::Config.new;
 
-    if $config-file {
-        read-config($config-file);
-    }
+    $config.read-config($config-file) if $config-file;
     $config.show-config if $show-config;
-}
-
-sub read-config($config-file) {
-    if not $config-file.IO.e {
-        die "Config file '$config-file' does not exist";
-    }
 }
 
 # vim: expandtab shiftwidth=4 softtabstop=4 ft=perl6

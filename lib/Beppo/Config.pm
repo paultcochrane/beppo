@@ -10,6 +10,16 @@ class Beppo::Config {
         say "config-file: $.config-file";
         say "start-date: $.start-date";
         say "end-date: $.end-date";
+
+        return True;
+    }
+
+    method read-config($config-file) {
+        if not $config-file.IO.e {
+            die "Config file '$config-file' does not exist";
+        }
+
+        return True;
     }
 };
 
