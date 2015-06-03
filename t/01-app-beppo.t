@@ -21,7 +21,7 @@ subtest {
 }, "default start and end dates";
 
 subtest {
-    plan 3;
+    plan 5;
 
     my $start-date = '2014-06-03';
     my $end-date = '2015-06-03';
@@ -34,6 +34,8 @@ subtest {
         "start date set correctly";
     is $beppo.end-date, Date.new('2014-06-30'),
         "end date set correctly";
+    ok $beppo.start-date ~~ (Date), "start date from arg is Date";
+    ok $beppo.end-date ~~ (Date), "end date from arg is Date";
 }, "setting start and end date values";
 
 # vim: expandtab shiftwidth=4 softtabstop=4 ft=perl6
