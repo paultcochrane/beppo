@@ -2,9 +2,11 @@
 
 use v6;
 
+use App::beppo;
+
 sub MAIN(Str :$start-date, Str :$end-date, Str :$base-search-dir) {
-     #my $beppo = App::beppo.new($start-date, $end-date, $base-search-dir);
-     #$beppo.run;
+     my $beppo = App::beppo.new(:$start-date, :$end-date, :$base-search-dir);
+     $beppo.run;
 }
 
 # vim: expandtab shiftwidth=4 softtabstop=4 ft=perl6
