@@ -1,4 +1,4 @@
 .PHONY: test
 
 test:
-	prove --exec perl6 -r t
+	PERL6LIB=lib prove --exec perl6 -r t
