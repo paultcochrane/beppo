@@ -3,7 +3,7 @@ use v6;
 use Test;
 use lib 'lib';
 
-plan 5;
+plan 6;
 
 use-ok 'App::beppo';
 use App::beppo;
@@ -52,6 +52,17 @@ subtest {
     is $beppo.base-search-dir, "/tmp".IO, "base search dir set correctly";
     ok $beppo.base-search-dir ~~ (IO::Path), "base search dir is an IO::Path";
 }, "set base-search-dir value";
+
+subtest {
+    plan 2;
+
+    ok App::beppo.new(author-name => 'Joe Bloggs'),
+        "application accepts author name argument";
+
+    my $beppo = App::beppo.new(author-name => 'Joe Bloggs');
+    is $beppo.author-name, "Joe Bloggs", "author name set correctly";
+
+}, "set author-name value";
 
 subtest {
     plan 1;
