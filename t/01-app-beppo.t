@@ -3,12 +3,10 @@ use v6;
 use Test;
 use lib 'lib';
 
-plan 5;
+plan 4;
 
 use-ok 'App::beppo';
 use App::beppo;
-
-ok App::beppo.new, "can instantiate beppo application";
 
 subtest {
     plan 4;
