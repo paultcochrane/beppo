@@ -3,7 +3,7 @@ use v6;
 use Test;
 use lib 'lib';
 
-plan 4;
+plan 5;
 
 use-ok 'App::beppo';
 use App::beppo;
@@ -39,6 +39,17 @@ subtest {
     ok $beppo.start-date ~~ (Date), "start date from arg is Date";
     ok $beppo.end-date ~~ (Date), "end date from arg is Date";
 }, "setting start and end date values";
+
+subtest {
+    plan 3;
+
+    ok App::beppo.new(base-search-dir => "/tmp"),
+        "application accepts base search dir argument";
+
+    my $beppo = App::beppo.new(base-search-dir => "/tmp");
+    is $beppo.base-search-dir, "/tmp".IO, "base search dir set correctly";
+    ok $beppo.base-search-dir ~~ (IO::Path), "base search dir is an IO::Path";
+}
 
 subtest {
     plan 1;
