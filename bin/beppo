@@ -2,11 +2,7 @@
 
 use v6;
 
-use Beppo::Config;
-
-sub MAIN(Str :$config-file,
-         Str :$start-date, Str :$end-date,
-         Bool :$show-config = False,
+sub MAIN(Str :$start-date, Str :$end-date,
          Bool :$verbose = False,
      ) {
          # use config object, pass the command line options to it, and have
@@ -16,10 +12,6 @@ sub MAIN(Str :$config-file,
          #
          #my $beppo = App::beppo.new($config-file, $start-date, $end-date, $show-config, $verbose);
          #$beppo.run;
-    my $config = Beppo::Config.new;
-
-    $config.read-config($config-file) if $config-file;
-    $config.show-config if $show-config;
 }
 
 # vim: expandtab shiftwidth=4 softtabstop=4 ft=perl6
