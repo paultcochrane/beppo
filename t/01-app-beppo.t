@@ -9,7 +9,7 @@ use-ok 'App::beppo';
 use App::beppo;
 
 subtest {
-    plan 6;
+    plan 7;
 
     my $beppo = App::beppo.new;
     ok $beppo.start-date, "application has a start date";
@@ -20,6 +20,8 @@ subtest {
 
     ok $beppo.base-search-dir, "application has a base search directory";
     ok $beppo.base-search-dir ~~ (IO::Path), "base search dir is an IO::Path";
+
+    is $beppo.author-name, "", "author name attribute default value";
 }, "default attribute values";
 
 subtest {
