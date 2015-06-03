@@ -51,7 +51,7 @@ subtest {
     my $beppo = App::beppo.new(base-search-dir => "/tmp");
     is $beppo.base-search-dir, "/tmp".IO, "base search dir set correctly";
     ok $beppo.base-search-dir ~~ (IO::Path), "base search dir is an IO::Path";
-}
+}, "set base-search-dir value";
 
 subtest {
     plan 1;
