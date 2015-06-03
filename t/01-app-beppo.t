@@ -20,7 +20,7 @@ subtest {
 
     ok $beppo.base-search-dir, "application has a base search directory";
     ok $beppo.base-search-dir ~~ (IO::Path), "base search dir is an IO::Path";
-}, "default start and end dates";
+}, "default attribute values";
 
 subtest {
     plan 5;
