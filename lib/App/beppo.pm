@@ -3,6 +3,7 @@ use v6;
 class App::beppo {
     has $.start-date;
     has $.end-date;
+    has $.base-search-dir = $*HOME;
 
     submethod BUILD(:$start-date, :$end-date) {
         $!start-date = $start-date ?? Date.new($start-date)

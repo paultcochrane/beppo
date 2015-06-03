@@ -9,13 +9,17 @@ use-ok 'App::beppo';
 use App::beppo;
 
 subtest {
-    plan 4;
+    plan 6;
+
     my $beppo = App::beppo.new;
     ok $beppo.start-date, "application has a start date";
     ok $beppo.end-date, "application has an end date";
 
     ok $beppo.start-date ~~ (Date), "start date is a Date";
     ok $beppo.end-date ~~ (Date), "end date is a Date";
+
+    ok $beppo.base-search-dir, "application has a base search directory";
+    ok $beppo.base-search-dir ~~ (IO::Path), "base search dir is an IO::Path";
 }, "default start and end dates";
 
 subtest {
