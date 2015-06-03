@@ -2,7 +2,7 @@
 
 use v6;
 
-sub MAIN(Str :$start-date, Str :$end-date) {
+sub MAIN(Str :$start-date, Str :$end-date, Str :$base-search-dir) {
          # use config object, pass the command line options to it, and have
          # it use some kind of sensible defaults so that the main beppo
          # application doesn't have to worry about configuration, it just
