@@ -10,6 +10,10 @@ class App::beppo {
         $!end-date = $end-date ?? Date.new($end-date)
                                !! Date.today;
     }
+
+    method run {
+        True;
+    }
 }
 
 # vim: expandtab shiftwidth=4 ft=perl6

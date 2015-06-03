@@ -3,7 +3,7 @@ use v6;
 use Test;
 use lib 'lib';
 
-plan 4;
+plan 5;
 
 use-ok 'App::beppo';
 use App::beppo;
@@ -37,5 +37,12 @@ subtest {
     ok $beppo.start-date ~~ (Date), "start date from arg is Date";
     ok $beppo.end-date ~~ (Date), "end date from arg is Date";
 }, "setting start and end date values";
+
+subtest {
+    plan 1;
+
+    my $beppo = App::beppo.new;
+    ok $beppo.run, "application runs";
+}, "run the program";
 
 # vim: expandtab shiftwidth=4 softtabstop=4 ft=perl6
