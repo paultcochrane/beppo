@@ -3,7 +3,7 @@ use v6;
 use Test;
 use lib 'lib';
 
-plan 3;
+plan 4;
 
 subtest {
     plan 1;
@@ -31,5 +31,12 @@ subtest {
     my $status = shell "bin/beppo --base-search-dir=/tmp";
     ok $status.exitcode == 0, "specify base-search-dir";
 }, "--base-search-dir option";
+
+subtest {
+    plan 1;
+
+    my $status = shell "bin/beppo --author-name='Joe Bloggs'";
+    ok $status.exitcode == 0, "specify author-name";
+}, "--author-name option";
 
 # vim: expandtab shiftwidth=4 softtabstop=4 ft=perl6

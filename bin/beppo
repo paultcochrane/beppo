@@ -4,8 +4,10 @@ use v6;
 
 use App::beppo;
 
-sub MAIN(Str :$start-date, Str :$end-date, Str :$base-search-dir) {
-     my $beppo = App::beppo.new(:$start-date, :$end-date, :$base-search-dir);
+sub MAIN(Str :$start-date, Str :$end-date,
+         Str :$base-search-dir, :$author-name) {
+     my $beppo = App::beppo.new(:$start-date, :$end-date,
+                                :$base-search-dir, :$author-name);
      $beppo.run;
 }
 
