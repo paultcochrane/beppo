@@ -3,7 +3,7 @@ use v6;
 use Test;
 use lib 'lib';
 
-plan 7;
+plan 6;
 
 use-ok 'App::beppo';
 use App::beppo;
@@ -63,13 +63,6 @@ subtest {
     is $beppo.author-name, "Joe Bloggs", "author name set correctly";
 
 }, "set author-name value";
-
-subtest {
-    plan 1;
-
-    my $beppo = App::beppo.new;
-    ok $beppo.run, "application runs";
-}, "run the program";
 
 subtest {
     plan 1;
