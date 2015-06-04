@@ -28,8 +28,11 @@ subtest {
 subtest {
     plan 1;
 
-    my $status = shell "bin/beppo --base-search-dir=/tmp";
+    my $test-dir = "/tmp/beppo";
+    mkdir $test-dir;
+    my $status = shell "bin/beppo --base-search-dir=$test-dir";
     ok $status.exitcode == 0, "specify base-search-dir";
+    rmdir $test-dir;
 }, "--base-search-dir option";
 
 subtest {
