@@ -3,7 +3,7 @@ use v6;
 use Test;
 use lib 'lib';
 
-plan 6;
+plan 7;
 
 use-ok 'App::beppo';
 use App::beppo;
@@ -70,5 +70,18 @@ subtest {
     my $beppo = App::beppo.new;
     ok $beppo.run, "application runs";
 }, "run the program";
+
+subtest {
+    plan 1;
+
+    my $test-dir = "/tmp/beppo";
+    mkdir $test-dir;
+
+    my $beppo = App::beppo.new(base-search-dir => $test-dir);
+    my @repo-list = $beppo.find-git-repos;
+    is @repo-list.elems, 0, "No repos found in empty search path";
+
+    qqx{rm -r $test-dir};
+}
 
 # vim: expandtab shiftwidth=4 softtabstop=4 ft=perl6

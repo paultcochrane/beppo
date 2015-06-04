@@ -17,7 +17,12 @@ class App::beppo {
     }
 
     method run {
-        True;
+        my @repo-list = self.find-git-repos;
+        return True;
+    }
+
+    method find-git-repos {
+        return ();
     }
 }
 
