@@ -22,7 +22,17 @@ class App::beppo {
     }
 
     method find-git-repos {
-        return ();
+        say "Finding git repos under $!base-search-dir";
+        say "This can take a while; please be patient";
+        my $find-command = "find $!base-search-dir -name '.git'";
+        my $find-output = qqx{$find-command}.chomp;
+        my @repo-list = $find-output
+            ?? gather for $find-output.split(/\s+/) -> $dir {
+                take $dir.IO.dirname;
+            }
+            !! ();
+
+        return @repo-list.sort;
     }
 }
 

@@ -65,7 +65,7 @@ subtest {
 }, "set author-name value";
 
 subtest {
-    plan 1;
+    plan 3;
 
     my $test-dir = "/tmp/beppo";
     mkdir $test-dir;
@@ -73,6 +73,18 @@ subtest {
     my $beppo = App::beppo.new(base-search-dir => $test-dir);
     my @repo-list = $beppo.find-git-repos;
     is @repo-list.elems, 0, "No repos found in empty search path";
+
+    for ^2 -> $index {
+        my $repo-path = $*SPEC.catdir($test-dir, "repo$index");
+        mkdir $repo-path;
+        qqx{git init $repo-path};
+    }
+
+    @repo-list = $beppo.find-git-repos;
+    is @repo-list.elems, 2, "Found expected number of git repos";
+
+    my @expected-repo-list = </tmp/beppo/repo0 /tmp/beppo/repo1>;
+    is @repo-list, @expected-repo-list, "Found expected repo list";
 
     qqx{rm -r $test-dir};
 }
